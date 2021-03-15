@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+	
+
+<bean id="deeptha" class="com.cts.authorization.model.UserCredential" scope="prototype">
+
+<property name="role" value="admin" />
+
+<property name="name" value="deeptha" />
+
+</bean>
+<bean id="jahanvi" class="com.cts.authorization.model.UserCredential" scope="prototype">
+
+<property name="role" value="admin" />
+
+<property name="name" value="jahanvi" />
+
+</bean>
+
+<bean id="utsav" class="com.cts.authorization.model.UserCredential" scope="prototype">
+
+<property name="role" value="user" />
+
+<property name="name" value="utsav" />
+
+</bean>
+
+<bean id="vineet" class="com.cts.authorization.model.UserCredential" scope="prototype">
+
+<property name="role" value="user" />
+
+<property name="name" value="vineet" />
+
+</bean>
+
+<bean id="userList" class="java.util.ArrayList">
+
+<constructor-arg>
+
+<list>
+
+<ref bean="deeptha"></ref>
+
+<ref bean="utsav"></ref>
+
+<ref bean="vineet"></ref>
+
+<ref bean="jahanvi"></ref>
+
+</list>
+
+</constructor-arg>
+
+</bean>
+
+</beans>

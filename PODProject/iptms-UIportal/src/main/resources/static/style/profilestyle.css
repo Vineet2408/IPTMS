@@ -1,0 +1,50 @@
+nav {
+	background-color: black;
+}
+
+#navheading {
+	color: #ffffff;
+}
+
+#navname {
+	color: #fff3d4;
+}
+
+#navlink {
+	color: #DFA362;
+	text-decoration: underline;
+}
+
+body{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-image: url('http://www.keshlata.com/wp-content/uploads/2018/03/hospital-background-images-hd-9.jpg');
+}
+.navbar{
+	padding: 0 1rem !important;
+}
+
+.material-icons{
+    font-size:1.5rem;
+    vertical-align: middle;
+    padding-right: 5px;
+    padding-bottom: 10px;
+}
+#insurertable{
+margin:0 auto;
+
+}
+td{
+font-weight:bold;
+}
+.table{
+background-color:#FFFFFF;
+}
+th{
+background-color:#000000;
+color:#FFFFFF;
+}
+#patientprofile{
+	margin: 0 auto;
+}

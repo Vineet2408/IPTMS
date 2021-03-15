@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://www.springframework.org/schema/beans">
+
+
+<bean class="java.text.SimpleDateFormat" id="dateFormat">
+
+<constructor-arg value="dd/MM/yyyy"/>
+
+</bean>
+
+
+<bean class="com.cognizant.insuranceclaimservice.model.PatientDetail" id="patient1">
+
+<property value="1" name="patientId"/>
+
+<property value="Monica Geller" name="name"/>
+
+<property value="32" name="age"/>
+
+<property value="package1" name="treatmentPackage"/>
+
+<property value="Orthopaedics" name="ailment"/>
+
+
+<property name="treatmentCommencementDate">
+
+
+<bean factory-method="parse" factory-bean="dateFormat">
+
+<constructor-arg value="22/02/2021"/>
+
+</bean>
+
+</property>
+
+</bean>
+
+
+<bean class="com.cognizant.insuranceclaimservice.model.PatientDetail" id="patient2">
+
+<property value="2" name="patientId"/>
+
+<property value="Sheldon Cooper" name="name"/>
+
+<property value="28" name="age"/>
+
+<property value="package2" name="treatmentPackage"/>
+
+<property value="Urology" name="ailment"/>
+
+
+<property name="treatmentCommencementDate">
+
+
+<bean factory-method="parse" factory-bean="dateFormat">
+
+<constructor-arg value="14/01/2021"/>
+
+</bean>
+
+</property>
+
+</bean>
+
+
+<bean class="com.cognizant.insuranceclaimservice.model.TreatmentPlan" id="treatmentPlan1">
+
+<property value="1" name="treatmentPlanId"/>
+
+<property name="patientDetail" ref="patient1"/>
+
+<property value="package1" name="packageName"/>
+
+<property value="OPT1" name="testDetail"/>
+
+<property value="2000" name="cost"/>
+
+<property value="Jim Halpert" name="specialist"/>
+
+
+<property name="treatmentCommencementDate">
+
+
+<bean factory-method="parse" factory-bean="dateFormat">
+
+<constructor-arg value="22/02/2021"/>
+
+</bean>
+
+</property>
+
+
+<property name="treatmentEndDate">
+
+
+<bean factory-method="parse" factory-bean="dateFormat">
+
+<constructor-arg value="01/03/2021"/>
+
+</bean>
+
+</property>
+
+</bean>
+
+
+<bean class="com.cognizant.insuranceclaimservice.model.TreatmentPlan" id="treatmentPlan2">
+
+<property value="2" name="treatmentPlanId"/>
+
+<property name="patientDetail" ref="patient2"/>
+
+<property value="package2" name="packageName"/>
+
+<property value="UPT2" name="testDetail"/>
+
+<property value="3000" name="cost"/>
+
+<property value="Kelly Kapoor" name="specialist"/>
+
+
+<property name="treatmentCommencementDate">
+
+
+<bean factory-method="parse" factory-bean="dateFormat">
+
+<constructor-arg value="14/01/2021"/>
+
+</bean>
+
+</property>
+
+
+<property name="treatmentEndDate">
+
+
+<bean factory-method="parse" factory-bean="dateFormat">
+
+<constructor-arg value="27/01/2021"/>
+
+</bean>
+
+</property>
+
+</bean>
+
+
+<bean class="java.util.ArrayList" id="patientList">
+
+
+<constructor-arg>
+
+
+<list>
+
+<ref bean="patient1"/>
+
+<ref bean="patient2"/>
+
+</list>
+
+</constructor-arg>
+
+</bean>
+
+
+<bean class="java.util.ArrayList" id="treatmentList">
+
+
+<constructor-arg>
+
+
+<list>
+
+<ref bean="treatmentPlan1"/>
+
+<ref bean="treatmentPlan2"/>
+
+</list>
+
+</constructor-arg>
+
+</bean>
+<bean class="com.cognizant.insuranceclaimservice.model.InsurerDetail" id="insurer1">
+
+<property value="1" name="id"/>
+
+<property value="Insurer1" name="insurerName"/>
+
+<property value="Ipackage1" name="insurerPackageName"/>
+
+<property value="1000" name="insurerAmountLimit"/>
+
+<property value="10" name="disbursmentDuration"/>
+
+</bean>
+
+<bean class="com.cognizant.insuranceclaimservice.model.InsurerDetail" id="insurer2">
+
+<property value="2" name="id"/>
+
+<property value="Insurer2" name="insurerName"/>
+
+<property value="Ipackage2" name="insurerPackageName"/>
+
+<property value="2000" name="insurerAmountLimit"/>
+
+<property value="12" name="disbursmentDuration"/>
+
+</bean>
+<bean class="com.cognizant.insuranceclaimservice.model.InitiateClaim" id="initiateClaim1">
+
+<property value="1" name="id"/>
+
+<property value="Monica Geller" name="patientName"/>
+
+<property value="Orthopaedics" name="ailment"/>
+
+<property value="package1" name="treatmentPackageName"/>
+
+<property name="insurerDetail" ref="insurer1"/>
+
+</bean>
+<bean class="com.cognizant.insuranceclaimservice.model.InitiateClaim" id="initiateClaim2">
+
+<property value="2" name="id"/>
+
+<property value="Sheldon Cooper" name="patientName"/>
+
+<property value="Urology" name="ailment"/>
+
+<property value="package2" name="treatmentPackageName"/>
+
+<property name="insurerDetail" ref="insurer2"/>
+
+</bean>
+
+<bean class="java.util.ArrayList" id="insurerList">
+
+
+<constructor-arg>
+
+
+<list>
+
+<ref bean="insurer1"/>
+
+<ref bean="insurer2"/>
+
+</list>
+
+</constructor-arg>
+
+</bean>
+
+<bean class="java.util.ArrayList" id="initiateClaimList">
+
+
+<constructor-arg>
+
+
+<list>
+
+<ref bean="initiateClaim1"/>
+
+<ref bean="initiateClaim2"/>
+
+</list>
+
+</constructor-arg>
+
+</bean>
+
+
+
+
+
+</beans>
